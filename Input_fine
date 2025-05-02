@@ -1,0 +1,80 @@
+ICASE
+0
+NI      NJ      IB1     IB2      JB1    JB2     JB       AX1        AX2        AY1       AY2
+300     202     100     150      -126   -76     101      1.03      1.025        1.03      1.03
+VELC     DEN      XLEN      Re-or-(-mu)      Pr
+ 1.0     1.0      0.02         200           1.0
+Pref    IPref   JPref
+1.      2       2
+FBSCALE   FBFHZ    TAU
+  0.0      10      1.0
+NTIME  	MAXIT 	  DT   	SORMAX	 ALPHA  PDAMP
+ 55    	 200	  0.0025	 1.E-5	    0.5    0.15
+NSWPU	NSWPV	NSWPP  	NSWPT
+  1     1     3       1
+URFU	URFV	URFP 	URFT
+0.7 	0.7     0.7     1.0
+-------------------------------------
+BU_W    BU_E    BU_N    BU_S
+1       2       0       0
+BV_W    BV_E    BV_N    BV_S
+1       2       0       0
+BP_W    BP_E    BP_N    BP_S
+1       2       2       2
+BT_W    BT_E    BT_N    BT_S
+1       2       1       1
+
+
+
+---------########  NOTES   ###########
+ICASE: Integer
+    0:  Flat Plate at J=1, body force between I=IB1:IB2, J=1:4.
+    1:  same as 0
+    3:  square block case, Body force on top and bottome of square block
+Other:  currently the same as 0.
+
+NI:          number of nodal points in x, I-index
+NJ:          number of nodal points in y, J-index
+IB1,IB2:     starting and ending index for the square block
+JB1,JB2:     starting and ending index for the square block, to remove the
+             block from the field, set JB1, and JB2 to be less than 0, but need
+             to keep JB2-JB1 > 0
+AX, AY:      stretching ratio for grids in x and y directions, respectively,
+             keep them less than 1.05
+VELC:        free-stream velocity
+DEN:         free-stream density
+XLEN:        Length of block, or plasma actuator occupied by X(IB2)-X(IB1)
+Re-or-(-mu): Reynolds number if positive or viscosity mu if negative
+Pr:          Prandtl number
+Pref:        Reference Pressure at IPref and JPref. Usually set to 1.
+IPref, JPref: location where Pref is set
+FBSCALE:     Scale for body force
+FBFHZ:       Body-force duty-cyle frequency, currently, duty-cyle ratio is 0.5.
+NTIME:       Time steps to be advanced, for steady computations, choose NTIME=1 or 2
+MAXIT:       number of implicit iterations for each time-step
+DT:          time step size (not CFL number anymore)
+SORMAX:      Max residaul value to control iteration
+ALPHA:       1.0 for 1st-order backward Euler, 0.5 for 2nd-order mid-point rule for time stepping
+PDAMP:       A pressure damping for stability, choose value between 0.0 and 0.2
+NSWPU:       number of sweeps for U equation in each iteration, usually 1.
+NSWPV:       number of sweeps for V equation in each iteration, usually 1.
+NSWPP:       number of sweeps for P equation in each iteration, usually 1-2.
+NSWPT:       number of sweeps for T equation in each iteration, usually 1-2.
+URFU:        Relaxation factor for U equation, greater than 0.0, less than 1.0.
+URFV:        Relaxation factor for V equation, greater than 0.0, less than 1.0.
+URFP:        Relaxation factor for P equation, greater than 0.0, less than 1.0.
+URFT:        Relaxation factor for T equation, greater than 0.0, less than 1.0.
+-----------------------------------------------------
+BU_W:        Integer, Boundary condition for U at West-side domain boundary
+             0:   no-slip zero velocity condition
+             1:   fixed free-stream velociy
+             2:   Neumann boundary condition using simple extrapolation
+             3:   Neumann boundary condition using mean advection (not tested)
+BU_E:        same as above but at East-side domain boundary
+BU_N:        same as above but at North-side domain boundary
+BU_S:        same as above but at South-side domain boundary
+BV_W, BV_E, BV_N, BV_S: same as above, but for V velocity boundary conditions.
+BP_W, BP_E, BP_N, BP_S: same as above, but for P velocity boundary conditions,
+             slections are, however, limited to
+             1:   fixed pressure (same as Pref)
+             2:   Neumann boundary condition using simple extrapolation

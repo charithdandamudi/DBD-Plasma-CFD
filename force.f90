@@ -1,0 +1,48 @@
+SUBROUTINE FORCE
+! ## CALCLUATE LIFT AND DRAG COEFFICIENTS ON BLCOK
+USE DATA
+IMPLICIT NONE
+REAL(dp) :: DA,DD
+
+  CL = 0.
+  CD = 0.
+!### PRESSURE CONTRIBUTION
+  DO J=JB1,JB2-1
+    DA = 0.5*(Y(J+1) -Y(J-1))
+    CD = CD +(P(IB1-1,J) -P(IB2,J))*DA
+  ENDDO
+  DO I=IB1,IB2-1
+    DA = 0.5*(X(I+1) -X(I-1))
+    CL = CL +(P(I,JB1-1) -P(I,JB2))*DA
+  ENDDO
+
+  CLP = CL
+  CDP = CD
+!### VISCOUS CONTRIBUTION
+  DO I=IB1,IB2
+    DA = (X(I) -X(I-1))
+    IF(I==IB1.or.I==IB2) DA=0.5*DA
+    DD = 0.5*(Y(JB2) -Y(JB2-1))
+    CD = CD +VISCOS*U(I,JB2)/DD*DA
+    DD = 0.5*(Y(JB1) -Y(JB1-1))
+    CD = CD +VISCOS*U(I,JB1-1)/DD*DA
+  ENDDO
+  DO J=JB1,JB2
+    DA = (Y(J) -Y(J-1))
+    IF(J==JB1.or.J==JB2) DA=0.5*DA
+    DD = 0.5*(X(IB2) -X(IB2-1))
+    CL = CL +VISCOS*V(IB2,J)/DD*DA
+    DD = 0.5*(X(IB1) -X(IB1-1))
+    CL = CL +VISCOS*V(IB1,J)/DD*DA
+  ENDDO
+  
+  CLP =  2.*CLP/(DENSIT*VELOC**2*XLEN)
+  CDP =  2.*CDP/(DENSIT*VELOC**2*XLEN)
+  CL = 2.*CL/(DENSIT*VELOC**2*XLEN)
+  CD = 2.*CD/(DENSIT*VELOC**2*XLEN)
+  CLV = CL - CLP
+  CDV = CD - CDP
+
+
+
+END SUBROUTINE FORCE
