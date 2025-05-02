@@ -9,3 +9,4 @@ We solve the u, v velocities, pressure and temperature equations.
 All the equations in time are pseudo implicit.
 Convection is discretized by using the Hybrid Scheme (upwind and central differencing).
 Diffusion is discretized by using the central differencing scheme.
+
