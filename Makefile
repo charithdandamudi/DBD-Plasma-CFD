@@ -1,6 +1,6 @@
 VPATH = .
-sources = data.f90 input.f90 init.f90 props.f90 calcu.f90 calcv.f90 calcp.f90 calct.f90 promod.f90 main.f90   \
-	  writeq.f90 lisolv.f90 force.f90 solvex.f90 geom.f90 bforce.f90 setbc.f90
+sources = data.f90 input.f90 init.f90 calcu.f90 calcv.f90 calcp.f90 calct.f90 promod.f90 main.f90   \
+	  	  writeq.f90 lisolv.f90 force.f90 solvex.f90 geom.f90 setbc.f90
 
 OBJ := $(addsuffix .o, $(basename ${sources}))
 
