@@ -86,13 +86,12 @@ PROGRAM Laminar_Flow
 !!      IF(NT>1) CALL BFORCE
 
       DO NITER=1,MAXIT ! inner iteration loop
-        CALL CALCU
-        CALL CALCV
-        CALL CALCP
+        IF (INCALU) CALL CALCU
+        IF (INCALV) CALL CALCV
+        IF (INCALP) CALL CALCP
         IF (INCALT) CALL CALCT
 !       CALL MODVEL
 
-        IF(INPRO) CALL PROPS
         SORCE = AMAX1(RESORU, RESORV, RESORM, RESORT)
         IF(NITER==1) SORCE0=SORCE
         IF(NT==1.AND.MOD(NITER,100)==1) THEN
