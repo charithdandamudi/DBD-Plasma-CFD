@@ -68,9 +68,9 @@ MODULE DATA
   REAL(dp), DIMENSION(1:mx, 1:my) :: DEN, VIS, GAMH  ! properties
   REAL(dp), DIMENSION(1:mx, 1:my) :: UN, VN, PN, TN, RSUN, RSVN, RSU, RSV  ! field variables at t=tn
   REAL(dp), DIMENSION(1:mx, 1:my) :: FBX, FBY, Force_x, Force_y   ! body force per unit volume
-  REAL(dp), DIMENSION(1:mx, 1:my) :: U_TOT, V_TOT, CP_TOT, FBX_TOT, FBY_TOT ! total values
-  REAL(dp), DIMENSION(1:mx, 1:my) :: U_BAR, V_BAR, CP_BAR, FBX_BAR, FBY_BAR ! average values 
-  REAL(dp), DIMENSION(1:mx, 1:my) :: U_RMS, V_RMS, CP_RMS     ! ROOT MEAN SQUARE VALUES
+  REAL(dp), DIMENSION(1:mx, 1:my) :: U_TOT, V_TOT, T_TOT, CP_TOT, FBX_TOT, FBY_TOT ! total values
+  REAL(dp), DIMENSION(1:mx, 1:my) :: U_BAR, V_BAR, T_BAR,  CP_BAR, FBX_BAR, FBY_BAR ! average values 
+  REAL(dp), DIMENSION(1:mx, 1:my) :: U_RMS, V_RMS, T_RMS, CP_RMS     ! ROOT MEAN SQUARE VALUES
   REAL(dp), DIMENSION(1:mx, 1:my) :: UI_RMS, VI_RMS   ! root mean square on original mesh
   REAL(dp), DIMENSION(1:mx, 1:my) :: UI_BAR, VI_BAR, FBXI, FBYI, FBXI_BAR, FBYI_BAR  ! average values on original mesh 
 
