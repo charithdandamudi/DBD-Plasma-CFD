@@ -83,7 +83,6 @@ IMPLICIT NONE
     INCALV = .TRUE.   ! v-velocity
     INCALP = .TRUE.   ! pressure
     INCALT = .TRUE.  ! temperature
-    INPRO  = .FALSE.   ! properties
 
     IF(abs(VELOC)>0) THEN
       USCALE = abs(VELOC)
