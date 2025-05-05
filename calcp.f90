@@ -25,6 +25,7 @@ IMPLICIT NONE
         DENS = 0.5 * (DEN(I, J) + DEN(I, JM1))
         DENE = 0.5 * (DEN(I, J) + DEN(IP1, J))
         DENW = 0.5 * (DEN(I, J) + DEN(IM1, J))
+
         AN(I,J) = DENN * AREAN * DV(I, JP1)
         AS(I,J) = DENS * AREAS * DV(I, J)
         AE(I,J) = DENE * AREAEW * DU(IP1, J)
@@ -36,6 +37,7 @@ IMPLICIT NONE
         CS = DENS * V(I, J) * AREAS
         CE = DENE * U(IP1, J) * AREAEW
         CW = DENW * U(I, J) * AREAEW
+        
         SMP = CN - CS + CE - CW
         SP(I, J) = 0.0
         SU(I, J) = -SMP

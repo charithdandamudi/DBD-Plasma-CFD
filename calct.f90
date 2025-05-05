@@ -21,13 +21,13 @@ IMPLICIT NONE
         ! calculate convection coefficients
 
         GN = 0.5 * (DEN(I, J) + DEN(I, JP1)) * V(I, JP1)
-        GS= 0.5 * (DEN(I, J) + DEN(I, JM1)) * V(I, J)
-        GE= 0.5 * (DEN(I, J) + DEN(IP1, J)) * U(IP1, J)
-        GW= 0.5 * (DEN(I, J) + DEN(IM1, J)) * U(I,J)
-        CN= GN * AREAN
-        CS= GS * AREAS
-        CE= GE * AREAEW
-        CW= GW * AREAEW
+        GS = 0.5 * (DEN(I, J) + DEN(I, JM1)) * V(I, J)
+        GE = 0.5 * (DEN(I, J) + DEN(IP1, J)) * U(IP1, J)
+        GW = 0.5 * (DEN(I, J) + DEN(IM1, J)) * U(I,J)
+        CN = GN * AREAN
+        CS = GS * AREAS
+        CE = GE * AREAEW
+        CW = GW * AREAEW
 
         ! calculate diffusion coefficients
 

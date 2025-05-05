@@ -179,7 +179,8 @@ PROGRAM Laminar_Flow
 
       !### write down the contours
       IF(NT>(NTIME-100))  CALL WRITEQ
-
+      
+      flush(7)
       flush(21)
       flush(22)
 

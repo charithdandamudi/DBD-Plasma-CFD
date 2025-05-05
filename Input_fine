@@ -9,7 +9,7 @@ Pref    IPref   JPref
 FBSCALE   FBFHZ    TAU
   0.0      10      1.0
 NTIME  	MAXIT 	  DT   	SORMAX	 ALPHA  PDAMP
- 50    	 200	  0.0025	 1.E-5	    0.5    0.15
+ 12     200	  0.0025	 1.E-5	  0.5    0.15
 NSWPU	NSWPV	NSWPP  	NSWPT
   1     1     3       1
 URFU	URFV	URFP 	URFT
@@ -65,16 +65,23 @@ URFV:        Relaxation factor for V equation, greater than 0.0, less than 1.0.
 URFP:        Relaxation factor for P equation, greater than 0.0, less than 1.0.
 URFT:        Relaxation factor for T equation, greater than 0.0, less than 1.0.
 -----------------------------------------------------
-BU_W:        Integer, Boundary condition for U at West-side domain boundary
-             0:   no-slip zero velocity condition
-             1:   fixed free-stream velociy
-             2:   Neumann boundary condition using simple extrapolation
-             3:   Neumann boundary condition using mean advection (not tested)
-BU_E:        same as above but at East-side domain boundary
-BU_N:        same as above but at North-side domain boundary
-BU_S:        same as above but at South-side domain boundary
+BU_W, BU_E, BU_N, BU_S: Integer, Boundary condition for U at West-side domain boundary
+                     0:   no-slip zero velocity condition
+                     1:   fixed free-stream velociy
+                     2:   Neumann boundary condition using simple extrapolation
+                     3:   Neumann boundary condition using mean advection (not tested)
+
 BV_W, BV_E, BV_N, BV_S: same as above, but for V velocity boundary conditions.
-BP_W, BP_E, BP_N, BP_S: same as above, but for P velocity boundary conditions,
-             slections are, however, limited to
-             1:   fixed pressure (same as Pref)
-             2:   Neumann boundary condition using simple extrapolation
+
+BP_W, BP_E, BP_N, BP_S: same as above, but for P velocity boundary conditions, slections are however limited to
+                     1:   fixed pressure (same as Pref)
+                     2:   Neumann boundary condition using simple extrapolation
+             
+BT_W, BT_E, BT_N, BT_S: Boundary conditions for Temperature (T)
+                     1: Dirichlet (Fixed T)
+                     2: Neumann (Zero-gradient)
+
+TLEFT, TRITE, TTOP, TBOT: Real values for Temperature at boundaries
+             Used only if the corresponding BT_* = 1 (Dirichlet)
+             For Neumann (type = 2), these values are ignored
+
