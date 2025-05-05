@@ -108,8 +108,8 @@ PROGRAM Laminar_Flow
             
             write(6,602) ! write to terminal using the 602 format (declared below)
             write(7,602) ! write to the file using the 602 format (declared below)
-            WRITE(6,601) NT, NITER, RESORU, RESORV, RESORT, CL, CLP, CD, CDP, TIME
-            WRITE(7,601) NT, NITER, RESORU, RESORV, RESORT, CL, CLP, CD, CDP, TIME
+            WRITE(6,601) NT, NITER, RESORU, RESORV, RESORM, RESORT, CL, CLP, CD, CDP, TIME
+            WRITE(7,601) NT, NITER, RESORU, RESORV, RESORM, RESORT, CL, CLP, CD, CDP, TIME
             
             ! We can print into the terminal using the next line
             ! write(6,*)  "   NT  ","NITER  ","RESORU     ","RESORV   ","RESORM    ","RESORT      ", &
@@ -126,8 +126,8 @@ PROGRAM Laminar_Flow
       
 
       write(6,602) ! write to terminal using the 602 format (declared below)
-      WRITE(6,601) NT, NITER, RESORU, RESORV, CL, CLP, CD, CDP, TIME
-      WRITE(7,601) NT, NITER, RESORU, RESORV, CL, CLP, CD, CDP, TIME
+      WRITE(6,601) NT, NITER, RESORU, RESORV, RESORM, RESORT, CL, CLP, CD, CDP, TIME
+      WRITE(7,601) NT, NITER, RESORU, RESORV, RESORM, RESORT, CL, CLP, CD, CDP, TIME
       
       601 FORMAT(2I5,2x,9E10.3,1x,E14.6)
       602 FORMAT("   NT  ","NITER  ","RESORU     ","RESORV   ","RESORM    ","RESORT      ", &
