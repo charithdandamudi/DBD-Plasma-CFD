@@ -3,3 +3,5 @@
 *.dat
 *.exe
 *.out
+test.py
+test.f90
