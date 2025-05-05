@@ -1,0 +1,26 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Run All (Fortran + Python)",
+        "type": "shell",
+        "command": "powershell",
+        "args": [
+          "-ExecutionPolicy",
+          "Bypass",
+          "-File",
+          "${workspaceFolder}\\run_all.ps1"
+        ],
+        "problemMatcher": [],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "presentation": {
+          "reveal": "always",
+          "panel": "dedicated"
+        }
+      }
+    ]
+  }
+  
