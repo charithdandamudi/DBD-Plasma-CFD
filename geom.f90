@@ -131,7 +131,9 @@ SELECT CASE (ICASE)
       ENDDO
       Y(NJ)  = Y(NJ) -0.5*DY
     ENDIF
+
   CASE (1) !### round pipe flow
+    
   CASE (2) !### SQUARE BOX in a 2D Channel
     DX0 = XLEN/FLOAT(IB2-IB1)  ! distance between grids in x
     DY0 = XLEN/FLOAT(JB2-JB1)  ! distance between grids in y
