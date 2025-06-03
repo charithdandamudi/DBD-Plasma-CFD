@@ -38,6 +38,7 @@ PROGRAM Laminar_Flow
    OPEN(UNIT = 7, FILE = 'tst.out', ACCESS = 'SEQUENTIAL', STATUS = 'UNKNOWN')
    OPEN(21,FILE='grid.dat', FORM='formatted')
    OPEN(22,FILE='solution.dat', FORM='formatted')
+   OPEN(23,FILE='time_solution.dat', FORM='formatted')
 
 
    !### read data,  set up geometry and initialize flow field
@@ -183,6 +184,7 @@ PROGRAM Laminar_Flow
       flush(7)
       flush(21)
       flush(22)
+      flush(23)
 
       UN = U
       VN = V
@@ -207,6 +209,7 @@ PROGRAM Laminar_Flow
    CLOSE(7)
    CLOSE(21)
    CLOSE(22)
+   CLOSE(23)
 
    OPEN(UNIT=45,FILE='surface_presssure.dat')
    
