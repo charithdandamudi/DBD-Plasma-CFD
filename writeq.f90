@@ -199,13 +199,15 @@ IMPLICIT NONE
 
 !### WRITE TECPLOT GRID FILE
     IF(NWRITE==0) THEN
-      write(21, *) 'TITLE = "FLOW PAST BLOCK"'
-      write(21, *) 'FILETYPE = GRID'
+      write(21, 100)
+      write(21, 101)
       write(21, 102)
       write(21, 103) NI, NJ
       write(21, 104)
       write(21, 105) ((1000*X(I),I=1,NI),J=1,NJ)
       write(21, 105) ((1000*Y(J),I=1,NI),J=1,NJ)
+
+
 !### write the block
       write(21,*) "GEOMETRY X=0.0,y=0.0,T=LINE,CS=GRID,"
       write(21,*) "L=SOLID,LT=0.005,C=WHITE,FC=WHITE"
@@ -242,16 +244,21 @@ IMPLICIT NONE
       write(21, 103) NI, NJ
       write(21,*) 'VARSHARELIST = ([1-2]=1)'
     ENDIF
+
+
 !### WRITE TECPLOT SOLUTION FILE
     IF(NWRITE==0) THEN
       write(22, 100)
       write(22, 201)
       write(22, 202)
     ENDIF
+
     write(22, 103) NI, NJ
     write(22, 204)  NWRITE
 !     write(22, *) 'SOLUTIONTIME = ', float(NWRITE)
     write(22, 104)
+
+    
     write(22, 105) ((UI(I,J),I=1,NI),J=1,NJ)
     write(22, 105) ((VI(I,J),I=1,NI),J=1,NJ)
     write(22, 105) ((P(I,J),I=1,NI),J=1,NJ)
@@ -259,9 +266,106 @@ IMPLICIT NONE
     write(22, 105) ((omega(I,J),I=1,NI),J=1,NJ)
     write(22, 105) ((FBXI(I,J),I=1,NI),J=1,NJ)
     write(22, 105) ((FBYI(I,J),I=1,NI),J=1,NJ)
+
+
+
+
+!####### Write Tecplot Time Step File
+IF(NWRITE==0) THEN
+      write(23, 100)
+      write(23, 231)
+
+!### write the block
+      write(23,*) "GEOMETRY"
+      write(23,*) "F=POINT,CS=GRID"
+      write(23,*) "X=0.0,Y=0.0,Z=0.0"                            !,T=LINE,"
+      write(23,*) "C=WHITE,S=GLOBAL,L=SOLID,PL=4,LT=0.005"
+      write(23,*) 'FC=WHITE CLIPPING=CLIPTOVIEWPORT'
+      write(23,*) 'DRAWORDER=AFTERDATA,MFC="",AST=PLAIN'
+      write(23,*) "T=LINE,DT=SINGLE"
+      write(23,*) 1
+      write(23,*) 2
+      write(23,*) 0.0, -10
+      write(23,*) 0.0,  10
+! #####################
+      write(23,*) "GEOMETRY"
+      write(23,*) "F=POINT,CS=GRID"
+      write(23,*) "X=0.0,Y=0.0,Z=0.0"                            !,T=LINE,"
+      write(23,*) "C=WHITE,S=GLOBAL,L=SOLID,PL=4,LT=0.005"
+      write(23,*) 'FC=WHITE CLIPPING=CLIPTOVIEWPORT'
+      write(23,*) 'DRAWORDER=AFTERDATA,MFC="",AST=PLAIN'
+      write(23,*) "T=LINE,DT=SINGLE"
+      write(23,*) 1
+      write(23,*) 2
+      write(23,*) 0, 10
+      write(23,*) 20,10
+! #####################
+      write(23,*) "GEOMETRY"
+      write(23,*) "F=POINT,CS=GRID"
+      write(23,*) "X=0.0,Y=0.0,Z=0.0"                            !,T=LINE,"
+      write(23,*) "C=WHITE,S=GLOBAL,L=SOLID,PL=4,LT=0.005"
+      write(23,*) 'FC=WHITE CLIPPING=CLIPTOVIEWPORT'
+      write(23,*) 'DRAWORDER=AFTERDATA,MFC="",AST=PLAIN'
+      write(23,*) "T=LINE,DT=SINGLE"
+      write(23,*) 1
+      write(23,*) 2
+      write(23,*) 20,10
+      write(23,*) 20,-10
+! ####################
+      write(23,*) "GEOMETRY"
+      write(23,*) "F=POINT,CS=GRID"
+      write(23,*) "X=0.0,Y=0.0,Z=0.0"                            !,T=LINE,"
+      write(23,*) "C=WHITE,S=GLOBAL,L=SOLID,PL=4,LT=0.005"
+      write(23,*) 'FC=WHITE CLIPPING=CLIPTOVIEWPORT'
+      write(23,*) 'DRAWORDER=AFTERDATA,MFC="",AST=PLAIN'
+      write(23,*) "T=LINE,DT=SINGLE"
+      write(23,*) 1
+      write(23,*) 2
+      write(23,*) 20,-10
+      write(23,*) 0,-10
+
+      !########################
+      write(23, 232) NWRITE
+      write(23, 233) 1, REAL(NWRITE*DT)
+      write(23, 234) NI, NJ
+      write(23, 235)
+      write(23, *) 'DT=(SINGLE SINGLE SINGLE SINGLE SINGLE SINGLE SINGLE SINGLE SINGLE )'
+      
+      write(23, 105) ((1000*X(I),I=1,NI),J=1,NJ)
+      write(23, 105) ((1000*Y(J),I=1,NI),J=1,NJ)
+      write(23, 105) ((UI(I,J),I=1,NI),J=1,NJ)
+      write(23, 105) ((VI(I,J),I=1,NI),J=1,NJ)
+      write(23, 105) ((P(I,J),I=1,NI),J=1,NJ)
+      write(23, 105) ((T(I,J),I=1,NI),J=1,NJ)
+      write(23, 105) ((omega(I,J),I=1,NI),J=1,NJ)
+      write(23, 105) ((FBXI(I,J),I=1,NI),J=1,NJ)
+      write(23, 105) ((FBYI(I,J),I=1,NI),J=1,NJ)
+
+    ELSE
+      write(23, 232) NWRITE
+      write(23, 233) 1, REAL(NWRITE*DT)
+      write(23, 234) NI, NJ
+      write(23, 235)
+      write(23, *) 'DT=(SINGLE SINGLE SINGLE SINGLE SINGLE SINGLE SINGLE SINGLE SINGLE )'
+      write(23,*) 'VARSHARELIST = ([1-2]=1)'
+      write(23, 105) ((UI(I,J),I=1,NI),J=1,NJ)
+      write(23, 105) ((VI(I,J),I=1,NI),J=1,NJ)
+      write(23, 105) ((P(I,J),I=1,NI),J=1,NJ)
+      write(23, 105) ((T(I,J),I=1,NI),J=1,NJ)
+      write(23, 105) ((omega(I,J),I=1,NI),J=1,NJ)
+      write(23, 105) ((FBXI(I,J),I=1,NI),J=1,NJ)
+      write(23, 105) ((FBYI(I,J),I=1,NI),J=1,NJ)
+      flush(23)
+    ENDIF
+
+
+    
+
     flush(21)
     flush(22)
+    flush(23)
     NWRITE = NWRITE +1
+
 100 format('TITLE = "FLOW PAST BLOCK"')
 101 format('FILETYPE = GRID')
 102 format('VARIABLES = "X" "Y"')
@@ -269,9 +373,15 @@ IMPLICIT NONE
 104 format('ZONETYPE = Ordered, DATAPACKING = BLOCK')
 105 format(10E14.5)
 201 format('FILETYPE = SOLUTION')
-!202 format('VARIABLES = "U" "V" "P" "FBX" "FBY"')
 202 format('VARIABLES = "U" "V" "P" "T" "omega" "FBX" "FBY"')
 204 format('T = "Time ', I4, '"')
+
+231 format('VARIABLES = "X" "Y" "U" "V" "P" "T" "omega" "FBX" "FBY"')
+232 format('ZONE T = "Time ', I4, '"')
+233 format(' STRANDID=', I3, ', SOLUTIONTIME=', F10.5)
+234 format(' I=', I6, ', J=', I6, ', K=1, ZONETYPE=Ordered')
+235 format(' DATAPACKING=BLOCK')
+
 
   !! Write the ASOP mesh
   open(unit=42,file='ASOP_mesh.dat')
