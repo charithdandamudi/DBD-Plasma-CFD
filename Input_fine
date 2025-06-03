@@ -1,7 +1,7 @@
 ICASE
 0
 NI      NJ      IB1     IB2      JB1    JB2     JB       AX1        AX2        AY1       AY2
-300     202     100     150      -126   -76     101      1.03      1.025        1.03      1.03
+5     3     2     3      -126   -76     101      1.00      1.00        1.00      1.00
 VELC     DEN      XLEN      Re-or-(-mu)      Pr
  1.0     1.0      0.02         200           1.0
 Pref    IPref   JPref
@@ -76,7 +76,7 @@ BV_W, BV_E, BV_N, BV_S: same as above, but for V velocity boundary conditions.
 BP_W, BP_E, BP_N, BP_S: same as above, but for P velocity boundary conditions, slections are however limited to
                      1:   fixed pressure (same as Pref)
                      2:   Neumann boundary condition using simple extrapolation
-             
+
 BT_W, BT_E, BT_N, BT_S: Boundary conditions for Temperature (T)
                      1: Dirichlet (Fixed T)
                      2: Neumann (Zero-gradient)
