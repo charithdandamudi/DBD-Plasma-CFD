@@ -24,6 +24,7 @@ SUBROUTINE INIT
   DEN  = DENSIT
   VIS  = VISCOS
   GAMH = VISCOS/PRANDT
+  ! GAMH = 0.0001
   write(6,*) 'GAMH', GAMH(1,1)
 
   DU   = 0.0

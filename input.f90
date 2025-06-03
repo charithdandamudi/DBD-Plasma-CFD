@@ -92,11 +92,12 @@ SUBROUTINE INPUT
       write(*,*) 'USCALE = sqrt(FBSCALE*XLEN)=',USCALE
     ELSE
       write(*,*) 'Program aborted due to zero velocity scale.'
-      stop
+      ! stop
     ENDIF
 
     IF(Reynolds > 0) THEN
        VISCOS = DENSIT*USCALE*XLEN/Reynolds                     ! properties of the fluid
+       write(*,*) 'Calculated Viscosity  Visc =', VISCOS
        write(*,*) 'Read in Reynolds number Re=', Reynolds
     ELSE
        VISCOS = -Reynolds
