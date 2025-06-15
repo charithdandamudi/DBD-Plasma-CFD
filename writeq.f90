@@ -275,54 +275,54 @@ IF(NWRITE==0) THEN
       write(23, 100)
       write(23, 231)
 
-!### write the block
-      write(23,*) "GEOMETRY"
-      write(23,*) "F=POINT,CS=GRID"
-      write(23,*) "X=0.0,Y=0.0,Z=0.0"                            !,T=LINE,"
-      write(23,*) "C=WHITE,S=GLOBAL,L=SOLID,PL=4,LT=0.005"
-      write(23,*) 'FC=WHITE CLIPPING=CLIPTOVIEWPORT'
-      write(23,*) 'DRAWORDER=AFTERDATA,MFC="",AST=PLAIN'
-      write(23,*) "T=LINE,DT=SINGLE"
-      write(23,*) 1
-      write(23,*) 2
-      write(23,*) 0.0, -10
-      write(23,*) 0.0,  10
-! #####################
-      write(23,*) "GEOMETRY"
-      write(23,*) "F=POINT,CS=GRID"
-      write(23,*) "X=0.0,Y=0.0,Z=0.0"                            !,T=LINE,"
-      write(23,*) "C=WHITE,S=GLOBAL,L=SOLID,PL=4,LT=0.005"
-      write(23,*) 'FC=WHITE CLIPPING=CLIPTOVIEWPORT'
-      write(23,*) 'DRAWORDER=AFTERDATA,MFC="",AST=PLAIN'
-      write(23,*) "T=LINE,DT=SINGLE"
-      write(23,*) 1
-      write(23,*) 2
-      write(23,*) 0, 10
-      write(23,*) 20,10
-! #####################
-      write(23,*) "GEOMETRY"
-      write(23,*) "F=POINT,CS=GRID"
-      write(23,*) "X=0.0,Y=0.0,Z=0.0"                            !,T=LINE,"
-      write(23,*) "C=WHITE,S=GLOBAL,L=SOLID,PL=4,LT=0.005"
-      write(23,*) 'FC=WHITE CLIPPING=CLIPTOVIEWPORT'
-      write(23,*) 'DRAWORDER=AFTERDATA,MFC="",AST=PLAIN'
-      write(23,*) "T=LINE,DT=SINGLE"
-      write(23,*) 1
-      write(23,*) 2
-      write(23,*) 20,10
-      write(23,*) 20,-10
-! ####################
-      write(23,*) "GEOMETRY"
-      write(23,*) "F=POINT,CS=GRID"
-      write(23,*) "X=0.0,Y=0.0,Z=0.0"                            !,T=LINE,"
-      write(23,*) "C=WHITE,S=GLOBAL,L=SOLID,PL=4,LT=0.005"
-      write(23,*) 'FC=WHITE CLIPPING=CLIPTOVIEWPORT'
-      write(23,*) 'DRAWORDER=AFTERDATA,MFC="",AST=PLAIN'
-      write(23,*) "T=LINE,DT=SINGLE"
-      write(23,*) 1
-      write(23,*) 2
-      write(23,*) 20,-10
-      write(23,*) 0,-10
+! !### write the block
+!       write(23,*) "GEOMETRY"
+!       write(23,*) "F=POINT,CS=GRID"
+!       write(23,*) "X=0.0,Y=0.0,Z=0.0"                            !,T=LINE,"
+!       write(23,*) "C=WHITE,S=GLOBAL,L=SOLID,PL=4,LT=0.005"
+!       write(23,*) 'FC=WHITE CLIPPING=CLIPTOVIEWPORT'
+!       write(23,*) 'DRAWORDER=AFTERDATA,MFC="",AST=PLAIN'
+!       write(23,*) "T=LINE,DT=SINGLE"
+!       write(23,*) 1
+!       write(23,*) 2
+!       write(23,*) 0.0, -10
+!       write(23,*) 0.0,  10
+! ! #####################
+!       write(23,*) "GEOMETRY"
+!       write(23,*) "F=POINT,CS=GRID"
+!       write(23,*) "X=0.0,Y=0.0,Z=0.0"                            !,T=LINE,"
+!       write(23,*) "C=WHITE,S=GLOBAL,L=SOLID,PL=4,LT=0.005"
+!       write(23,*) 'FC=WHITE CLIPPING=CLIPTOVIEWPORT'
+!       write(23,*) 'DRAWORDER=AFTERDATA,MFC="",AST=PLAIN'
+!       write(23,*) "T=LINE,DT=SINGLE"
+!       write(23,*) 1
+!       write(23,*) 2
+!       write(23,*) 0, 10
+!       write(23,*) 20,10
+! ! #####################
+!       write(23,*) "GEOMETRY"
+!       write(23,*) "F=POINT,CS=GRID"
+!       write(23,*) "X=0.0,Y=0.0,Z=0.0"                            !,T=LINE,"
+!       write(23,*) "C=WHITE,S=GLOBAL,L=SOLID,PL=4,LT=0.005"
+!       write(23,*) 'FC=WHITE CLIPPING=CLIPTOVIEWPORT'
+!       write(23,*) 'DRAWORDER=AFTERDATA,MFC="",AST=PLAIN'
+!       write(23,*) "T=LINE,DT=SINGLE"
+!       write(23,*) 1
+!       write(23,*) 2
+!       write(23,*) 20,10
+!       write(23,*) 20,-10
+! ! ####################
+!       write(23,*) "GEOMETRY"
+!       write(23,*) "F=POINT,CS=GRID"
+!       write(23,*) "X=0.0,Y=0.0,Z=0.0"                            !,T=LINE,"
+!       write(23,*) "C=WHITE,S=GLOBAL,L=SOLID,PL=4,LT=0.005"
+!       write(23,*) 'FC=WHITE CLIPPING=CLIPTOVIEWPORT'
+!       write(23,*) 'DRAWORDER=AFTERDATA,MFC="",AST=PLAIN'
+!       write(23,*) "T=LINE,DT=SINGLE"
+!       write(23,*) 1
+!       write(23,*) 2
+!       write(23,*) 20,-10
+!       write(23,*) 0,-10
 
       !########################
       write(23, 232) NWRITE
