@@ -1,15 +1,15 @@
 ICASE
 0
 NI      NJ      IB1     IB2      JB1    JB2     JB       AX1        AX2        AY1       AY2
-5     3     2     3      -126   -76     101      1.00      1.00        1.00      1.00
+300     202     100     150      -126   -76     101      1.00      1.00        1.00      1.00
 VELC     DEN      XLEN      Re-or-(-mu)      Pr
- 1.0     1.0      0.02         200           1.0
+ 1.0     1.0      0.02         200           1.4
 Pref    IPref   JPref
 1.      2       2
 FBSCALE   FBFHZ    TAU
   0.0      10      1.0
 NTIME  	MAXIT 	  DT   	SORMAX	 ALPHA  PDAMP
-  5     200	  0.0025	 1.E-5	  0.5    0.15
+  20     200	  0.0025	 1.E-5	  0.5    0.15
 NSWPU	NSWPV	NSWPP  	NSWPT
   1     1     3       1
 URFU	URFV	URFP 	URFT

@@ -54,6 +54,8 @@ SUBROUTINE CALCT
         AE(I, J) = AMAX1(ABS(0.5 * CE), DE) - 0.5 * CE
         AW(I, J) = AMAX1(ABS(0.5 * CW), DW) + 0.5 * CW
 
+
+        
         SU(I, J) = CPO * T(I, J) + RDT * TN(I, J)
         SP(I, J) = -CP - RDT
 
